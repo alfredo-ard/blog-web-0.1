@@ -1,0 +1,37 @@
+<%- include("partials/header.ejs") %>
+
+<div class="form-container">
+    <h2 class="form-title">Create a New Blog Post</h2>
+    <form action="/update-post" method="POST">
+        <!-- Title Input -->
+        <div class="form-group">
+            <label for="title">Post Title</label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Enter the title"
+                value="<%= data.title %>"
+                required
+            />
+        </div>
+
+        <!-- Paragraph Input -->
+        <div class="form-group">
+            <label for="content">Post Content</label>
+            <textarea
+                id="content"
+                name="content"
+                rows="5"
+                placeholder="Write your post here"
+                required
+            >
+<%=data.content%></textarea
+            >
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Update Post</button>
+    </form>
+</div>
+<%- include("partials/footer.ejs") %>

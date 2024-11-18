@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs") %>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>Your journey begin</h1>
+        <h2>From here to the world</h2>
+    </div>
+</div>
+
+<div class="post-section">
+    <% if (locals.data != []) { %> <% for( let i = 0; i < data.length; i++ ) {
+    %>
+    <div class="post">
+        <a href="/post/<%= data[i].id %>"
+            ><h2 class="post-title"><%= data[i].title %></h2></a
+        >
+        <p class="detail"><%= data[i].date %></p>
+
+        <div class="editing">
+            <a href="/delete/<%= data[i].id %>" class="icon-a"
+                ><ion-icon name="trash-outline" class="delete-icon"></ion-icon
+            ></a>
+
+            <a href="/update/<%= data[i].id %>" class="icon-a">
+                <ion-icon name="create-outline" class="delete-icon"></ion-icon
+            ></a>
+        </div>
+        <hr />
+    </div>
+    <% } } %>
+    <a href="/add" class="add-icon"
+        ><ion-icon name="add-circle-outline" class="icon"></ion-icon
+    ></a>
+</div>
+
+<%- include("partials/footer.ejs") %>
